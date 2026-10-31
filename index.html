@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10243a">
+<title>ProCV Studio — Build a CV that gets noticed</title>
+<style>
+:root{--navy:#10243a;--blue:#2563eb;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--paper:#fff;--bg:#f4f7fb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+header{background:var(--navy);color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo{font-size:21px;font-weight:800;letter-spacing:-.5px}.logo span{color:#8bb6ff}
+header a{color:#dbeafe;text-decoration:none;font-size:14px}
+.hero{padding:54px 5% 42px;background:linear-gradient(120deg,#10243a,#183d62);color:white}
+.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.eyebrow{color:#a9c9ff;text-transform:uppercase;font-size:12px;font-weight:700;letter-spacing:1.5px}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.08;margin:12px 0}
+.hero p{color:#d5e2f2;max-width:570px}.hero-card{background:#fff;color:var(--ink);padding:22px;border-radius:16px;box-shadow:0 18px 45px #07182b55}
+.hero-card strong{display:block;font-size:16px;margin-bottom:8px}.sample-line{height:8px;background:#e8eef7;border-radius:10px;margin:11px 0}.sample-line.short{width:55%}.sample-line.mid{width:78%}
+.button{border:0;border-radius:9px;padding:12px 17px;font-weight:700;cursor:pointer;background:var(--blue);color:white;font-size:14px}.button.secondary{background:#eaf1ff;color:#1d4ed8}.button.dark{background:var(--navy)}
+main{max-width:1100px;margin:34px auto;padding:0 5%}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:18px}.section-head h2{margin:0;font-size:25px}.muted{color:var(--muted);font-size:14px}
+.builder{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}
+.panel h3{margin:0 0 16px;font-size:18px}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 5px}
+input,textarea{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;font-size:14px;background:white}
+textarea{min-height:76px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.preview-wrap{background:#e9eef5;border-radius:12px;padding:14px;overflow:auto}
+.cv{background:white;max-width:650px;min-height:760px;margin:auto;padding:38px 42px;box-shadow:0 4px 18px #0f172a12}
+.cv h2{font-size:27px;margin:0;color:#122b46}.cv .role{color:#2563eb;font-weight:700;margin:2px 0 10px}
+.cv .contact{font-size:11px;color:#64748b;border-bottom:2px solid #2563eb;padding-bottom:13px;overflow-wrap:anywhere}
+.cv h4{font-size:12px;letter-spacing:1px;color:#1d4ed8;margin:20px 0 7px;text-transform:uppercase}
+.cv p{font-size:12px;white-space:pre-wrap;margin:0;color:#334155}.cv .entry{margin:9px 0}.cv .entry strong{font-size:12px}.cv .entry small{display:block;color:#64748b;font-size:10px;margin:2px 0 4px}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+footer{text-align:center;color:var(--muted);padding:30px 5%;font-size:12px}
+.notice{font-size:12px;color:#64748b;margin-top:10px}
+@media(max-width:760px){.hero-inner,.builder{grid-template-columns:1fr}.hero{padding-top:38px}.cv{padding:26px 22px;min-height:650px}.section-head{display:block}.grid2{gap:8px}}
+@media print{body{background:white}.no-print,header,.hero,main>.section-head, .panel:first-child,footer{display:none!important}main{margin:0;padding:0;max-width:none}.builder{display:block}.panel{border:0;padding:0}.preview-wrap{padding:0;background:white}.cv{box-shadow:none;max-width:none;min-height:0;padding:12mm}}
+</style>
+</head>
+<body>
+<header><div class="logo">ProCV <span>Studio</span></div><a href="#builder">Create your CV</a></header>
+<section class="hero">
+ <div class="hero-inner">
+  <div><div class="eyebrow">Simple • Professional • Free to start</div><h1>Build a CV that gets noticed.</h1><p>Create a clean, professional CV in minutes. Add your details, preview your document, and save it as a PDF from your phone or computer.</p><button class="button" onclick="document.getElementById('builder').scrollIntoView({behavior:'smooth'})">Create my CV</button></div>
+  <div class="hero-card" aria-label="CV preview illustration"><strong>Professional CV preview</strong><div style="font-size:20px;font-weight:800;color:#10243a">YOUR NAME</div><div style="font-size:11px;color:#2563eb">YOUR PROFESSIONAL TITLE</div><div class="sample-line"></div><div class="sample-line mid"></div><div class="sample-line short"></div><div style="font-size:11px;font-weight:700;color:#2563eb;margin-top:18px">EXPERIENCE</div><div class="sample-line"></div><div class="sample-line mid"></div><div class="sample-line short"></div></div>
+ </div>
+</section>
+<main id="builder">
+ <div class="section-head"><div><h2>CV Builder</h2><div class="muted">Fill in your information and watch your CV update.</div></div></div>
+ <div class="builder">
+  <section class="panel no-print">
+   <h3>Your information</h3>
+   <label for="name">Full name</label><input id="name" placeholder="e.g. Alex Johnson" value="Alex Johnson">
+   <label for="title">Professional title</label><input id="title" placeholder="e.g. Customer Service Assistant" value="Customer Service Assistant">
+   <div class="grid2"><div><label for="email">Email</label><input id="email" type="email" placeholder="alex@email.com" value="alex@email.com"></div><div><label for="phone">Phone</label><input id="phone" placeholder="+234..." value="+234 800 000 0000"></div></div>
+   <label for="location">Location</label><input id="location" placeholder="City, Country" value="Lagos, Nigeria">
+   <label for="summary">Professional summary</label><textarea id="summary">Motivated and dependable professional with strong communication, organisation and problem-solving skills. Eager to contribute and grow within a supportive team.</textarea>
+   <label for="experience">Work experience</label><textarea id="experience" placeholder="Job title — Company (2023–2025)&#10;Describe your responsibilities and achievements.">Customer Service Assistant — ABC Services (2023–2025)
+Assisted customers, responded to enquiries and helped resolve day-to-day service issues.</textarea>
+   <label for="education">Education</label><textarea id="education" placeholder="Qualification — School (Year)">Diploma / Degree — Your Institution (2022)</textarea>
+   <label for="skills">Skills</label><textarea id="skills" placeholder="Communication, teamwork, Microsoft Word...">Communication, teamwork, time management, Microsoft Word, problem-solving</textarea>
+   <div class="actions"><button class="button" onclick="window.print()">Save as PDF</button><button class="button secondary" type="button" id="reset">Reset sample</button></div>
+   <div class="notice">Tip: Choose “Save as PDF” in your browser's print options. Replace all sample details with your own before using the CV.</div>
+  </section>
+  <section class="panel">
+   <h3 class="no-print">Live preview</h3>
+   <div class="preview-wrap"><article class="cv" id="cv" aria-live="polite">
+    <h2 id="p-name">Alex Johnson</h2><div class="role" id="p-title">Customer Service Assistant</div><div class="contact" id="p-contact">alex@email.com · +234 800 000 0000 · Lagos, Nigeria</div>
+    <h4>Profile</h4><p id="p-summary"></p>
+    <h4>Experience</h4><p id="p-experience"></p>
+    <h4>Education</h4><p id="p-education"></p>
+    <h4>Skills</h4><p id="p-skills"></p>
+   </article></div>
+   <div class="actions no-print"><button class="button dark" onclick="window.print()">Download / Print PDF</button></div>
+  </section>
+ </div>
+</main>
+<footer>ProCV Studio · A simple CV builder. Always review your details before sending your CV.</footer>
+<script>
+const fields=['name','title','email','phone','location','summary','experience','education','skills'];
+const outputs={name:'p-name',title:'p-title',summary:'p-summary',experience:'p-experience',education:'p-education',skills:'p-skills'};
+function update(){
+ fields.forEach(id=>{const el=document.getElementById(id);if(outputs[id])document.getElementById(outputs[id]).textContent=el.value.trim()||' ';});
+ document.getElementById('p-contact').textContent=['email','phone','location'].map(id=>document.getElementById(id).value.trim()).filter(Boolean).join(' · ');
+}
+fields.forEach(id=>document.getElementById(id).addEventListener('input',update));
+document.getElementById('reset').addEventListener('click',()=>{
+ const sample={name:'Alex Johnson',title:'Customer Service Assistant',email:'alex@email.com',phone:'+234 800 000 0000',location:'Lagos, Nigeria',summary:'Motivated and dependable professional with strong communication, organisation and problem-solving skills. Eager to contribute and grow within a supportive team.',experience:'Customer Service Assistant — ABC Services (2023–2025)\nAssisted customers, responded to enquiries and helped resolve day-to-day service issues.',education:'Diploma / Degree — Your Institution (2022)',skills:'Communication, teamwork, time management, Microsoft Word, problem-solving'};
+ Object.entries(sample).forEach(([id,value])=>document.getElementById(id).value=value);update();
+});
+update();
+</script>
+</body>
+</html>
