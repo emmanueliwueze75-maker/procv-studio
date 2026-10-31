@@ -1,4 +1,4 @@
-   <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -34,15 +34,21 @@ textarea{min-height:76px;resize:vertical}
 .cv p{font-size:12px;white-space:pre-wrap;margin:0;color:#334155}.cv .entry{margin:9px 0}.cv .entry strong{font-size:12px}.cv .entry small{display:block;color:#64748b;font-size:10px;margin:2px 0 4px}
 
 /* CV template styles */
-.cv.template-modern{border-top:9px solid #2563eb}
-.cv.template-classic{font-family:Georgia,serif;border:1px solid #cbd5e1}
-.cv.template-classic h2,.cv.template-classic h4{color:#17324d}
-.cv.template-minimal{padding-left:54px;border-left:8px solid #0f766e}
-.cv.template-minimal .role{color:#0f766e}
-.cv.template-creative{background:linear-gradient(90deg,#f0fdfa 0 30%,#fff 30%);border-left:7px solid #0d9488}
-.cv.template-creative h2,.cv.template-creative h4{color:#0f766e}
-.cv.template-executive{border-top:12px solid #172033;box-shadow:inset 0 0 0 1px #cbd5e1}
-.cv.template-executive .role{color:#475569}
+.cv.template-modern{border-top:9px solid #2563eb!important}
+.cv.template-classic{font-family:Georgia,serif!important;border:2px solid #64748b!important;border-top:0!important}
+.cv.template-classic h2{font-family:Georgia,serif!important;color:#17324d!important;border-bottom:2px solid #64748b;padding-bottom:12px}
+.cv.template-classic .role{color:#475569!important;font-style:italic}
+.cv.template-classic h4{color:#17324d!important;border-bottom:1px solid #cbd5e1;padding-bottom:4px}
+.cv.template-minimal{padding-left:54px!important;border-left:10px solid #0f766e!important;border-top:0!important}
+.cv.template-minimal .role,.cv.template-minimal h4{color:#0f766e!important}
+.cv.template-minimal .contact{border-bottom:1px solid #99f6e4!important}
+.cv.template-creative{background:linear-gradient(90deg,#ccfbf1 0 28%,#fff 28%)!important;border-left:8px solid #0d9488!important;border-top:0!important}
+.cv.template-creative h2,.cv.template-creative h4{color:#0f766e!important}
+.cv.template-creative .contact{border-bottom:2px dashed #0d9488!important}
+.cv.template-executive{border:1px solid #94a3b8!important;border-top:14px solid #172033!important;box-shadow:inset 0 0 0 5px #f1f5f9!important}
+.cv.template-executive h2{letter-spacing:1px;text-transform:uppercase;color:#172033!important}
+.cv.template-executive .role{color:#475569!important;text-transform:uppercase;letter-spacing:1px}
+.cv.template-executive h4{color:#172033!important}
 .template-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 14px}
 .template-controls label{margin:0}
 .template-controls select{padding:10px;border:1px solid #cbd5e1;border-radius:8px;background:#fff;font:inherit}
@@ -110,9 +116,13 @@ function update(){
  document.getElementById('p-contact').textContent=['email','phone','location'].map(id=>document.getElementById(id).value.trim()).filter(Boolean).join(' · ');
 }
 fields.forEach(id=>document.getElementById(id).addEventListener('input',update));
-document.getElementById('template').addEventListener('change',function(){
+function applyTemplate(value){
  const cv=document.getElementById('cv');
- cv.className='cv template-'+this.value;
+ cv.classList.remove('template-modern','template-classic','template-minimal','template-creative','template-executive');
+ cv.classList.add('template-'+value);
+}
+document.getElementById('template').addEventListener('change',function(){
+ applyTemplate(this.value);
 });
 document.getElementById('reset').addEventListener('click',()=>{
  const sample={name:'Alex Johnson',title:'Customer Service Assistant',email:'alex@email.com',phone:'+234 800 000 0000',location:'Lagos, Nigeria',summary:'Motivated and dependable professional with strong communication, organisation and problem-solving skills. Eager to contribute and grow within a supportive team.',experience:'Customer Service Assistant — ABC Services (2023–2025)\nAssisted customers, responded to enquiries and helped resolve day-to-day service issues.',education:'Diploma / Degree — Your Institution (2022)',skills:'Communication, teamwork, time management, Microsoft Word, problem-solving'};
@@ -121,4 +131,4 @@ document.getElementById('reset').addEventListener('click',()=>{
 update();
 </script>
 </body>
-      </html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </html>
+</html
